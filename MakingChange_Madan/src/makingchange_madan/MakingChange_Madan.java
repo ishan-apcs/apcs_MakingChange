@@ -6,8 +6,13 @@ import java.util.Scanner;
  *
  * @author ishanmadan
  * 
- * My project will ask the user whether they want to buy a single or multiple items, then start the appropriate program. Either program will offer a menu, or a build-your-own order option, then get the item(s) they want to purchase. Menu options will already have
- * a price built in, build-your-own orders will ask for the price. Both programs will then ask for payment, and then return change in tens, fives, ones, quarters, dimes, nickels, and pennies, and build a print statement declaring these to the user.
+ * My project will ask the user whether they want to place a single order or multiple, then start the appropriate
+ * method. The chosen method will offer a menu and a build-your-own order option, then get the item(s) the user
+ * wants to purchase. Menu options will already have a price built in and build-your-own orders will ask for the 
+ * price. If the user selected single order, they will go straight to checkout, but if they selected multiple order,
+ * they will have the option to add as many more orders as they wish, until they choose to go to checkout. The
+ * checkout method returns a total with tax, and then asks for payment and forces the user to provide an acceptable
+ * form of payment.
  */
 public class MakingChange_Madan {
 
@@ -309,6 +314,7 @@ public class MakingChange_Madan {
         int tens; // number of $10 bills
         int fives; // number of $5 bills
         int ones; // number of $1 bills
+        int halfdollars; // number of half dollars
         int quarters; // number of quarters
         int dimes; // number of dimes
         int nickels; // number of nickels
@@ -337,6 +343,8 @@ public class MakingChange_Madan {
         change -= (fives * 500); // subtract however many fives user is given back (in cents)
         ones = getChangeForUnit((int)change, 1); // get max number of ones possible in remaining change value
         change -= (ones * 100); // subtract however many ones user is given back (in cents)
+        halfdollars = getChangeForUnit((int)change, 0.5); // get max number of half dollars possible in remaining change value
+        change -= (halfdollars * 50); // subtract however many half dollars user is given back (in cents)
         quarters = getChangeForUnit((int)change, 0.25); // get max number of quarters possible in remaining change value
         change -= (quarters * 25); // subtract however many quarters user is given back (in cents)
         dimes = getChangeForUnit((int)change, 0.1); // get max number of dimes possible in remaining change value
@@ -363,6 +371,7 @@ public class MakingChange_Madan {
             print += addChangeToPrint(print, tens, "ten", "tens");
             print += addChangeToPrint(print, fives, "five", "fives");
             print += addChangeToPrint(print, ones, "one", "ones");
+            print += addChangeToPrint(print, halfdollars, "half dollar", "half dollars");
             print += addChangeToPrint(print, quarters, "quarter", "quarters");
             print += addChangeToPrint(print, dimes, "dime", "dimes");
             print += addChangeToPrint(print, nickels, "nickel", "nickels");
@@ -397,7 +406,7 @@ public class MakingChange_Madan {
         
         int unitToCheck = (int)(unit * 100); // allows comparison of ints instead of doubles
         
-        if ((unitToCheck == (10000)) || (unitToCheck == (5000)) || (unitToCheck == (2000)) || (unitToCheck == (1000)) || (unitToCheck == (500)) || (unitToCheck == (100)) || (unitToCheck == (25)) || (unitToCheck == (10)) || (unitToCheck == (5)) || (unitToCheck == (1))) { // only run if unit is a recognized bill amount
+        if ((unitToCheck == (10000)) || (unitToCheck == (5000)) || (unitToCheck == (2000)) || (unitToCheck == (1000)) || (unitToCheck == (500)) || (unitToCheck == (100)) || (unitToCheck == (50)) || (unitToCheck == (25)) || (unitToCheck == (10)) || (unitToCheck == (5)) || (unitToCheck == (1))) { // only run if unit is a recognized bill amount
             return (int)((change - (change % unitToCheck)) / unitToCheck); // return correct number of bills/coins
         } else {
             System.out.println("getChangeForUnit unit error"); // print error
