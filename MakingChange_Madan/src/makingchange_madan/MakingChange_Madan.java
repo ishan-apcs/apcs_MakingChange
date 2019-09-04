@@ -365,17 +365,17 @@ public class MakingChange_Madan {
         if (origChange != 0) { // if there actually was change to give back (meaning payment didn't equal price)
             print += ("Here's your change: $" + origChange + " ("); // begin to print amount of change given, plus units
         
-            print += addChangeToPrint(print, hundreds, "hundred", "hundreds");
-            print += addChangeToPrint(print, fifties, "fifty", "fifties");
-            print += addChangeToPrint(print, twenties, "twenty", "twenties");
-            print += addChangeToPrint(print, tens, "ten", "tens");
-            print += addChangeToPrint(print, fives, "five", "fives");
-            print += addChangeToPrint(print, ones, "one", "ones");
-            print += addChangeToPrint(print, halfdollars, "half dollar", "half dollars");
-            print += addChangeToPrint(print, quarters, "quarter", "quarters");
-            print += addChangeToPrint(print, dimes, "dime", "dimes");
-            print += addChangeToPrint(print, nickels, "nickel", "nickels");
-            print += addChangeToPrint(print, pennies, "penny", "pennies");
+            print += addChangeToPrint(print, hundreds, "hundred", "hundreds"); // add number of hundreds to print statement
+            print += addChangeToPrint(print, fifties, "fifty", "fifties"); // add number of fifties to print statement
+            print += addChangeToPrint(print, twenties, "twenty", "twenties"); // add number of twenties to print statement
+            print += addChangeToPrint(print, tens, "ten", "tens"); // add number of tens to print statement
+            print += addChangeToPrint(print, fives, "five", "fives"); // add number of fives to print statement
+            print += addChangeToPrint(print, ones, "one", "ones"); // add number of ones to print statement
+            print += addChangeToPrint(print, halfdollars, "half dollar", "half dollars"); // add number of half dollars to print statement
+            print += addChangeToPrint(print, quarters, "quarter", "quarters"); // add number of quarters to print statement
+            print += addChangeToPrint(print, dimes, "dime", "dimes"); // add number of dimes to print statement
+            print += addChangeToPrint(print, nickels, "nickel", "nickels"); // add number of nickels to print statement
+            print += addChangeToPrint(print, pennies, "penny", "pennies"); // add number of pennies to print statement
 
             print += ("). "); // close parentheses opened at beginning of statement
         }
