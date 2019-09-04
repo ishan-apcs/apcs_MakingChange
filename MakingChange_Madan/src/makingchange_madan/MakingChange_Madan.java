@@ -289,8 +289,7 @@ public class MakingChange_Madan {
                 System.out.println("I'm sorry, nothing in life is free. Please enter a price greater than $0."); // ask for acceptable price
                 price = removeDollarSign(input.nextLine()); // check for new price of order, make acceptable value
             }
-            System.out.println(price * 100.0);
-            System.out.println((Math.floor(100 * price)));
+            
             if ((round(price * 10000) / 100) != (Math.floor(100 * price))) {  // make sure price has only 2 decimal places
                 System.out.println("Sorry, all our prices are to two decimal places. Please enter a price that conforms to typical monetary standards."); // ask for acceptable price
                 price = removeDollarSign(input.nextLine()); // check for new price of order, make acceptable value
